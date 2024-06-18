@@ -14,8 +14,8 @@ export async function main() {
     const prepared = await client.autofill({
         "TransactionType": "Payment",
         "Account": wallet.address,
-        "Amount": xrpl.xrpToDrops("15"),
-        "Destination": "rPT1Sjq2YGrBMTttX4GZHjKu9dyfzbpAYe"
+        "Amount": xrpl.xrpToDrops("30"),
+        "Destination": "rUCzEr6jrEyMpjhs4wSdQdz4g8Y382NxfM"
     });
     const max_ledger = prepared.LastLedgerSequence;
     console.log("Prepared transaction instructions:", prepared);
