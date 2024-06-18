@@ -21,7 +21,7 @@ export async function main() {
         "Amount": xrpl.xrpToDrops("30"),//sending 30 XRP
         "Destination": "rUCzEr6jrEyMpjhs4wSdQdz4g8Y382NxfM"//destination address
     });
-    const max_ledger = prepared.LastLedgerSequence;
+    const max_ledger = prepared.LastLedgerSequence; //maximum ledger sequence for transaction validity
 
     //logging prepared transaction data
     console.log("Prepared transaction instructions:", prepared);
@@ -31,8 +31,8 @@ export async function main() {
 
     //Signing the transaction with the wallet secert key
     const signed = wallet.sign(prepared);
-    console.log("Identifying hash:", signed.hash);//transaction hash
-    console.log("Signed blob:", signed.tx_blob);//signed transaction data
+    console.log("Identifying hash:", signed.hash);//logging transaction hash
+    console.log("Signed blob:", signed.tx_blob);//logging signed transaction data
     //Submitting the signed transaction and awaiting for confirmation
     const tx = await client.submitAndWait(signed.tx_blob);
     console.log("Transaction result:", tx.result.meta.TransactionResult);//printing result
